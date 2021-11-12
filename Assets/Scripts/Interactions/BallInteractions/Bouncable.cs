@@ -5,20 +5,11 @@ namespace Assets.Scripts.Interactions.BallInteractions
 {
     public class Bouncable : MonoBehaviour
     {
-        public event Action<bool> OnBounce;
-
-        private Animator _animator;
-
-
-        private void Awake()
-        {
-            //_animator = transform.parent.GetComponentInChildren<Animator>();
-        }
+        public event Action<Vector3> OnBounce;
 
         public void GetBounce(Vector3 normalizedCollisionVector)
         {
-            //_animator.SetTrigger("HasBounce");
-            OnBounce?.Invoke(true);
+            OnBounce?.Invoke(normalizedCollisionVector);
             Debug.Log("BOUNCER : OnTrigger");
         }
     }
