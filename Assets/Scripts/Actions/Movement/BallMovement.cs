@@ -12,16 +12,20 @@ namespace Assets.Scripts.Actions.Movement
         public CharacterController MovementComponent { get; private set; }
         public bool Activated { get; private set; }
 
-//        private Animator _animator;
+        //        private Animator _animator;
 
         [SerializeField] private TransformInterpolator transformInterpolater;
 
-        private Vector3 movVector;
+        private Vector3 movVerticalVector;
+
+        [SerializeField] private float timeWishedToSpendOnAir;
+        private float timeOnAir;
 
 
 
 
-        private  void Awake()
+
+        private void Awake()
         {
             //_animator = GetComponentInChildren<Animator>();
             MovementComponent = GetComponent<CharacterController>();
@@ -34,12 +38,13 @@ namespace Assets.Scripts.Actions.Movement
 
         private void GetBounce(Vector3 colVector)
         {
-            movVector *= -1;
+            timeOnAir = 0f;
+            movVerticalVector = Vector3.up;
             SetGravityToZero();
         }
 
         private bool isDebuging;
-      
+
 
         private void Update()
         {
@@ -49,11 +54,6 @@ namespace Assets.Scripts.Actions.Movement
                 Debug.Log("T");
                 Activate();
             }
-            if (Input.GetKeyDown(KeyCode.C))
-            {
-                Debug.Log("C");
-                MoveTo(Vector3.down);
-            }
             if (Input.GetKeyDown(KeyCode.D))
             {
                 Debug.Log("'D'EBUG");
@@ -61,7 +61,7 @@ namespace Assets.Scripts.Actions.Movement
             }
             if (isDebuging)
             {
-                Debug.Log("movVector: " + movVector);
+                Debug.Log("movVector: " + movVerticalVector);
             }
             #endregion
 
@@ -69,11 +69,14 @@ namespace Assets.Scripts.Actions.Movement
             if (!Activated)
                 return;
 
-
-            MoveTo(movVector);
+            MoveTo(movVerticalVector);
             impact = Vector3.Lerp(impact, Vector3.zero, Time.deltaTime);
         }
 
+        private float EaseOutQuad(float progress)
+        {
+            return progress * progress * progress;
+        }
 
         public void AddImpact(Vector3 dir, float force)
         {
@@ -82,25 +85,38 @@ namespace Assets.Scripts.Actions.Movement
             impact += dir.normalized * force;
         }
 
+        private void ChangeGravityDirection()
+        {
+
+        }
+
         private void MoveTo(Vector3 data)
         {
-            data.Normalize();
+            timeOnAir += Time.deltaTime;
 
-            data *= (speedMultiplier * maxSpeed * Time.deltaTime);
+            data.Normalize();
+            if (timeOnAir > timeWishedToSpendOnAir)
+            {
+                SetGravity();
+            }
+
+
+
+
+
+
+            data *= (speedMultiplier* maxSpeed * Time.deltaTime);
 
 
             Vector3 velocity = Vector3.Lerp(transformInterpolater.oldVector,
                 data, transformInterpolater.vectorLerpCoefficient);
-            Debug.Log(velocity);
+
             if (impact != Vector3.zero && impact.sqrMagnitude < 12)
                 impact = Vector3.zero;
+            
 
-            MovementComponent.Move(velocity + Vector3.up * (_gravityHolder.gravityCoefficient * Time.deltaTime) +
-                                   impact * Time.deltaTime);
-            if (_gravityHolder.gravityCoefficient>0.001f)
-            {
-                SetGravity();
-            }
+            MovementComponent.Move(velocity + Vector3.up * (_gravityHolder.gravityCoefficient * Time.deltaTime)/* +
+                                   impact * Time.deltaTime*/);
         }
 
         private void SetGravity()
@@ -130,12 +146,12 @@ namespace Assets.Scripts.Actions.Movement
         {
             Activated = true;
             SetGravity();
-            movVector = Vector3.down;
+            //movVerticalVector = Vector3.up;
         }
 
         private void OnDestroy()
         {
-            
+
         }
 
 
