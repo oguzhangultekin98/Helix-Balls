@@ -12,6 +12,7 @@ namespace Assets.Scripts.Interactions.FloorInteractions
                 Vector3 normalizedCollisionVector = (other.transform.position - transform.position).normalized;
                 _bouncable.GetBounce(normalizedCollisionVector);
                 Debug.Log("BOUNCER : OnTrigger");
+                
             }
         }
     }

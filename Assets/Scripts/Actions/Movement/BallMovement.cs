@@ -17,6 +17,7 @@ namespace Assets.Scripts.Actions.Movement
         [SerializeField] private TransformInterpolator transformInterpolater;
 
         private Vector3 movVerticalVector;
+        private Vector3 movHorizontalVector;
 
         [SerializeField] private float timeWishedToSpendOnAir;
         private float timeOnAir;
@@ -39,8 +40,7 @@ namespace Assets.Scripts.Actions.Movement
         private void GetBounce(Vector3 colVector)
         {
             timeOnAir = 0f;
-            movVerticalVector = Vector3.up;
-            SetGravityToZero();
+            movVerticalVector = Vector3.down;
         }
 
         private bool isDebuging;
@@ -63,19 +63,32 @@ namespace Assets.Scripts.Actions.Movement
             {
                 Debug.Log("movVector: " + movVerticalVector);
             }
+            if (Input.GetKeyDown(KeyCode.H))
+            {
+                movHorizontalVector.x = 0.3f;
+            }
+
+            if (Input.GetKeyDown(KeyCode.J))
+            {
+                movHorizontalVector.x = -0.3f;
+            }
+
+            if (Input.GetKeyDown(KeyCode.K))
+            {
+                movHorizontalVector.z = 0.3f;
+            }
+
+
+
+
             #endregion
 
 
             if (!Activated)
                 return;
 
-            MoveTo(movVerticalVector);
-            impact = Vector3.Lerp(impact, Vector3.zero, Time.deltaTime);
-        }
-
-        private float EaseOutQuad(float progress)
-        {
-            return progress * progress * progress;
+            MoveTo();
+            //impact = Vector3.Lerp(impact, Vector3.zero, Time.deltaTime);
         }
 
         public void AddImpact(Vector3 dir, float force)
@@ -89,34 +102,34 @@ namespace Assets.Scripts.Actions.Movement
         {
 
         }
-
-        private void MoveTo(Vector3 data)
+        private float EaseOutQuad(float progress)
+        {
+            return 1 - Mathf.Pow(1 - progress, 4);
+        }
+        private void MoveTo()
         {
             timeOnAir += Time.deltaTime;
-
-            data.Normalize();
-            if (timeOnAir > timeWishedToSpendOnAir)
+            if (timeOnAir < timeWishedToSpendOnAir)
+            {
+                MovementComponent.Move(Vector3.up * Time.deltaTime * 4f * EaseOutQuad(timeOnAir / timeWishedToSpendOnAir));
+                SetGravityToZero();
+            }
+            else
             {
                 SetGravity();
             }
 
 
+            var movVector = movHorizontalVector * (speedMultiplier * maxSpeed * Time.deltaTime);
+            var velocity = Vector3.Lerp(transformInterpolater.oldVector,
+                movVector, transformInterpolater.vectorLerpCoefficient);
 
-
-
-
-            data *= (speedMultiplier* maxSpeed * Time.deltaTime);
-
-
-            Vector3 velocity = Vector3.Lerp(transformInterpolater.oldVector,
-                data, transformInterpolater.vectorLerpCoefficient);
-
-            if (impact != Vector3.zero && impact.sqrMagnitude < 12)
+            /*if (impact != Vector3.zero && impact.sqrMagnitude < 12)
                 impact = Vector3.zero;
-            
+            */
 
-            MovementComponent.Move(velocity + Vector3.up * (_gravityHolder.gravityCoefficient * Time.deltaTime)/* +
-                                   impact * Time.deltaTime*/);
+            MovementComponent.Move(velocity + movVerticalVector * (_gravityHolder.gravityCoefficient * Time.deltaTime) +
+                                  impact * Time.deltaTime);
         }
 
         private void SetGravity()
@@ -124,8 +137,10 @@ namespace Assets.Scripts.Actions.Movement
             if (MovementComponent.isGrounded)
                 _gravityHolder.gravityCoefficient =
                     Mathf.Lerp(_gravityHolder.gravityCoefficient, 0, Time.deltaTime * 10f);
-            else
+            else if (movVerticalVector.y < -0.1f)
                 _gravityHolder.gravityCoefficient += GravityHolder.Gravity * Time.deltaTime;
+            else
+                _gravityHolder.gravityCoefficient -= GravityHolder.Gravity * Time.deltaTime;
         }
 
         public void SetGravityToZero()
@@ -146,14 +161,13 @@ namespace Assets.Scripts.Actions.Movement
         {
             Activated = true;
             SetGravity();
-            //movVerticalVector = Vector3.up;
+            movVerticalVector = Vector3.down;
+            timeOnAir = 99f;
         }
 
         private void OnDestroy()
         {
-
+            GetComponentInChildren<Bouncable>().OnBounce -= GetBounce;
         }
-
-
     }
 }

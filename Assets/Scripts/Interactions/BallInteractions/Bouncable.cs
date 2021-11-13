@@ -10,7 +10,6 @@ namespace Assets.Scripts.Interactions.BallInteractions
         public void GetBounce(Vector3 normalizedCollisionVector)
         {
             OnBounce?.Invoke(normalizedCollisionVector);
-            Debug.Log("BOUNCER : OnTrigger");
         }
     }
 }
