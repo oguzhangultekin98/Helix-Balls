@@ -7,9 +7,9 @@ namespace Assets.Scripts.Interactions.BallInteractions
     {
         public event Action<Vector3,float> OnBounce;
 
-        public void GetBounce(Vector3 normalizedCollisionVector,float timeSpendOnAirSetter)
+        public void GetBounce(Vector3 reflectVector,float timeSpendOnAirSetter)
         {
-            OnBounce?.Invoke(normalizedCollisionVector,timeSpendOnAirSetter);
+            OnBounce?.Invoke(reflectVector, timeSpendOnAirSetter);
         }
     }
 }

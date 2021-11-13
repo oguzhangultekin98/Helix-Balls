@@ -42,14 +42,23 @@ namespace Assets.Scripts.Actions.Movement
         {
             timeWishedToSpendOnAir += 0.2f;
             Debug.Log(colVector);
-            colVector.y=0f;
-            movHorizontalVector = (colVector*ballMass);
+            colVector.y = 0f;
+            movHorizontalVector = (colVector * ballMass);
         }
 
-        private void GetBounce(Vector3 colVector,float timeSpendOnAir)
+        private void GetBounce(Vector3 reflectVector, float timeSpendOnAir)
         {
             timeOnAir = 0f;
-            movVerticalVector = Vector3.down;
+            movVerticalVector.y = reflectVector.y;
+
+            reflectVector.y = 0;
+
+            if (reflectVector.sqrMagnitude > 0f)
+            {
+                movHorizontalVector = -reflectVector;
+                Debug.Log("REFLECT VECTOR :" + reflectVector);
+
+            }
             timeWishedToSpendOnAir = timeSpendOnAir;
         }
 
