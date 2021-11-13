@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 5162035378567366727}
   - component: {fileID: 7827466425746267493}
   - component: {fileID: 8227018386741772193}
+  - component: {fileID: 4306141952299979989}
   m_Layer: 3
   m_Name: StageInteractor
   m_TagString: Untagged
@@ -59,3 +60,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timeSpendOnAirSeed: 0.6
   reflectType: 1
+--- !u!114 &4306141952299979989
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8555514302041364654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7e6ff08fe5585fe4cbf0ece198ed09a6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ballsNeeded: 6

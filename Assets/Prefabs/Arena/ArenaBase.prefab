@@ -28,7 +28,7 @@ Transform:
   m_GameObject: {fileID: 2307531098101213338}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.2, y: 5, z: 1.2}
+  m_LocalScale: {x: 1.2, y: 10, z: 1.2}
   m_Children:
   - {fileID: 2343070910070651841}
   m_Father: {fileID: 7685656059076297388}
@@ -121,8 +121,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4364410015864538795}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.12038088, y: 1.7685022, z: -0.50375843}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.12038088, y: 3.0507, z: -0.50375843}
+  m_LocalScale: {x: 1, y: 1.725, z: 1}
   m_Children:
   - {fileID: 8041832726130151110}
   - {fileID: 1131244911390779772}
@@ -198,6 +198,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7685656059076297388}
+  - component: {fileID: 5908996319437600585}
   m_Layer: 0
   m_Name: ArenaBase
   m_TagString: Untagged
@@ -221,6 +222,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5908996319437600585
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7592249955470967838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c76a984f4e779214c83aedf32c9ee0da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2404869356347641773
 PrefabInstance:
   m_ObjectHideFlags: 0
