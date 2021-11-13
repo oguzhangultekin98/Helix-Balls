@@ -10,7 +10,6 @@ namespace Assets.Scripts.Interactions.BallInteractions
             {
                 Vector3 normalizedCollisionVector = (other.transform.position - transform.position).normalized;
                 _hittable.GetHit(normalizedCollisionVector);
-                Debug.Log("Hit : OnTrigger");
             }
         }
     }

@@ -41,7 +41,6 @@ namespace Assets.Scripts.Actions.Movement
         private void GetHit(Vector3 colVector)
         {
             timeWishedToSpendOnAir += 0.2f;
-            Debug.Log(colVector);
             colVector.y = 0f;
             movHorizontalVector = (colVector * ballMass);
         }
@@ -55,9 +54,7 @@ namespace Assets.Scripts.Actions.Movement
 
             if (reflectVector.sqrMagnitude > 0f)
             {
-                movHorizontalVector = -reflectVector;
-                Debug.Log("REFLECT VECTOR :" + reflectVector);
-
+                movHorizontalVector = (movHorizontalVector - reflectVector).normalized*0.4f;
             }
             timeWishedToSpendOnAir = timeSpendOnAir;
         }
@@ -103,7 +100,6 @@ namespace Assets.Scripts.Actions.Movement
                 return;
 
             MoveTo();
-            //impact = Vector3.Lerp(impact, Vector3.zero, Time.deltaTime);
         }
 
         public void AddImpact(Vector3 dir, float force)
@@ -134,7 +130,7 @@ namespace Assets.Scripts.Actions.Movement
                 SetGravity();
             }
 
-
+            Debug.Log("movHorizontalVector" + movHorizontalVector);
             var movVector = movHorizontalVector * (speedMultiplier * maxSpeed * Time.deltaTime);
             var velocity = Vector3.Lerp(transformInterpolater.oldVector,
                 movVector, transformInterpolater.vectorLerpCoefficient);
@@ -143,8 +139,8 @@ namespace Assets.Scripts.Actions.Movement
                 impact = Vector3.zero;
             */
 
-            MovementComponent.Move(velocity + movVerticalVector * (_gravityHolder.gravityCoefficient * Time.deltaTime) +
-                                  impact * Time.deltaTime);
+            MovementComponent.Move(velocity + movVerticalVector * (_gravityHolder.gravityCoefficient * Time.deltaTime) /*+
+                                  impact * Time.deltaTime*/);
         }
 
         private void SetGravity()
