@@ -21,8 +21,8 @@ namespace Assets.Scripts.Actions.Movement
 
         [SerializeField] private float timeWishedToSpendOnAir;
         private float timeOnAir;
-
-
+        private float riseUpSpeedMultiplier;
+        private float ballMass;
 
 
 
@@ -42,14 +42,15 @@ namespace Assets.Scripts.Actions.Movement
         {
             timeWishedToSpendOnAir += 0.2f;
             Debug.Log(colVector);
-            colVector.y = 0f;
-            movHorizontalVector = colVector;
+            colVector.y=0f;
+            movHorizontalVector = (colVector*ballMass);
         }
 
-        private void GetBounce(Vector3 colVector)
+        private void GetBounce(Vector3 colVector,float timeSpendOnAir)
         {
             timeOnAir = 0f;
             movVerticalVector = Vector3.down;
+            timeWishedToSpendOnAir = timeSpendOnAir;
         }
 
         private bool isDebuging;
@@ -86,10 +87,6 @@ namespace Assets.Scripts.Actions.Movement
             {
                 movHorizontalVector.z = 0.3f;
             }
-
-
-
-
             #endregion
 
 
@@ -120,7 +117,7 @@ namespace Assets.Scripts.Actions.Movement
             timeOnAir += Time.deltaTime;
             if (timeOnAir < timeWishedToSpendOnAir)
             {
-                MovementComponent.Move(Vector3.up * Time.deltaTime * 4f * EaseOutQuad(timeOnAir / timeWishedToSpendOnAir));
+                MovementComponent.Move(Vector3.up * Time.deltaTime * riseUpSpeedMultiplier * EaseOutQuad(timeOnAir / timeWishedToSpendOnAir));
                 SetGravityToZero();
             }
             else
@@ -172,6 +169,8 @@ namespace Assets.Scripts.Actions.Movement
             SetGravity();
             movVerticalVector = Vector3.down;
             timeOnAir = 99f;
+            riseUpSpeedMultiplier = UnityEngine.Random.Range(4.75f, 6.00f);
+            ballMass = UnityEngine.Random.Range(0.75f, 1.25f);
         }
 
         private void OnDestroy()
