@@ -10,7 +10,8 @@ namespace Assets.Scripts.Interactions.FloorInteractions
         public enum ReflectType
         {
             InsideBounce,
-            RegularBounce
+            RegularBounce,
+            HoopBounce
         }
 
 
@@ -20,26 +21,32 @@ namespace Assets.Scripts.Interactions.FloorInteractions
             if (other.TryGetComponent(out Bouncable _bouncable))
             {
                 var reflectVector = Vector3.down;
+                var randomnessOnBounce = UnityEngine.Random.Range(0.5f, 1f);
+                var colDir = (transform.position - other.transform.position);
+
+                if (reflectType != ReflectType.RegularBounce)
+                    colDir.y = 0;
+
+
                 if (reflectType == ReflectType.InsideBounce)
                 {
-                    var colDir = ( transform.position- other.transform.position).normalized;
-                    colDir.y = 0;
-                    reflectVector -= colDir;
+                    reflectVector -= colDir.normalized;
                 }
-                /*
-                else if (reflectType == ReflectType.Ouside)
+                else if (reflectType == ReflectType.HoopBounce)
                 {
-                    var colDir = (other.transform.position - transform.position).normalized;
-                    colDir.y = 0;
-                    reflectVector -= colDir;
-
-                    Debug.Log("CYLINDER");
-
+                    if (colDir.y>0.1f) //Over hoop
+                    {
+                        reflectVector -= colDir.normalized;
+                        Debug.Log("OVER HOOP INTERACTOR");
+                    }
+                    else if (colDir.y<0.1f)//Under hoop
+                    {
+                        randomnessOnBounce = 0f;
+                    }
                 }
-                */
 
                 _bouncable.GetBounce(reflectVector,
-                    (timeSpendOnAirSeed*UnityEngine.Random.Range(0.85f,1.25f)));
+                    (timeSpendOnAirSeed)*randomnessOnBounce);
             }
         }
     }
