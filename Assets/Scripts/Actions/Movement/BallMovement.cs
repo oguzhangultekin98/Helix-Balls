@@ -131,6 +131,7 @@ namespace Assets.Scripts.Actions.Movement
             }
 
             Debug.Log("movHorizontalVector" + movHorizontalVector);
+
             var movVector = movHorizontalVector * (speedMultiplier * maxSpeed * Time.deltaTime);
             var velocity = Vector3.Lerp(transformInterpolater.oldVector,
                 movVector, transformInterpolater.vectorLerpCoefficient);

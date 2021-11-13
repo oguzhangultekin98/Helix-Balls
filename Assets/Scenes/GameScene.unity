@@ -1489,7 +1489,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeSpendOnAirSeed: 0.7
-  reflectType: 2
+  reflectType: 0
 --- !u!65 &2017055692
 BoxCollider:
   m_ObjectHideFlags: 0
