@@ -1,12 +1,15 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using UnityEngine;
 
 namespace Assets.Scripts.Interactions.BallInteractions
 {
-    class Hittable
+    public class Hittable:MonoBehaviour
     {
+        public event Action<Vector3> OnHit;
+
+        public void GetHit(Vector3 collisionVector)
+        {
+            OnHit?.Invoke(collisionVector);
+        }
     }
 }

@@ -31,10 +31,19 @@ namespace Assets.Scripts.Actions.Movement
             //_animator = GetComponentInChildren<Animator>();
             MovementComponent = GetComponent<CharacterController>();
             GetComponentInChildren<Bouncable>().OnBounce += GetBounce;
+            GetComponentInChildren<Hittable>().OnHit += GetHit;
 
 
             transformInterpolater.oldVector = Vector3.zero;
             transformInterpolater.oldQuaternion = transform.rotation;
+        }
+
+        private void GetHit(Vector3 colVector)
+        {
+            timeWishedToSpendOnAir += 0.2f;
+            Debug.Log(colVector);
+            colVector.y = 0f;
+            movHorizontalVector = colVector;
         }
 
         private void GetBounce(Vector3 colVector)
@@ -168,6 +177,7 @@ namespace Assets.Scripts.Actions.Movement
         private void OnDestroy()
         {
             GetComponentInChildren<Bouncable>().OnBounce -= GetBounce;
+            GetComponentInChildren<Hittable>().OnHit -= GetHit;
         }
     }
 }

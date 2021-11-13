@@ -1,12 +1,17 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using UnityEngine;
 
 namespace Assets.Scripts.Interactions.BallInteractions
 {
-    class Hitter
+    public class Hitter:MonoBehaviour
     {
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.TryGetComponent(out Hittable _hittable))
+            {
+                Vector3 normalizedCollisionVector = (other.transform.position - transform.position).normalized;
+                _hittable.GetHit(normalizedCollisionVector);
+                Debug.Log("Hit : OnTrigger");
+            }
+        }
     }
 }
