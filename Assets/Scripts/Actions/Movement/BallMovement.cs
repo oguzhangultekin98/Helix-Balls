@@ -24,7 +24,7 @@ namespace Assets.Scripts.Actions.Movement
         private float riseUpSpeedMultiplier;
         private float ballMass;
 
-
+        private float maxTimeCanSpendOnAir = 1.2f;
 
         private void Awake()
         {
@@ -40,7 +40,10 @@ namespace Assets.Scripts.Actions.Movement
 
         private void GetHit(Vector3 colVector)
         {
-            timeWishedToSpendOnAir += 0.2f;
+            if (maxTimeCanSpendOnAir<timeOnAir)
+            {
+                timeWishedToSpendOnAir += 0.1f;
+            }
             colVector.y = 0f;
             movHorizontalVector = (colVector * ballMass);
         }

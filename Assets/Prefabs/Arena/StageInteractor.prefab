@@ -57,5 +57,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e04f2f31509f99e48a801a37b016e385, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeSpendOnAirSeed: 0.5
+  timeSpendOnAirSeed: 0.6
   reflectType: 1

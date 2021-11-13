@@ -22,7 +22,7 @@ namespace Assets.Scripts.Interactions.FloorInteractions
                 var reflectVector = Vector3.down;
                 if (reflectType == ReflectType.InsideBounce)
                 {
-                    var colDir = (other.transform.position - transform.position).normalized;
+                    var colDir = ( transform.position- other.transform.position).normalized;
                     colDir.y = 0;
                     reflectVector -= colDir;
                 }
