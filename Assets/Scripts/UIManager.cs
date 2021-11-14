@@ -1,4 +1,5 @@
-﻿using JetBrains.Annotations;
+﻿using Assets.Scripts.Actions.Movement;
+using JetBrains.Annotations;
 using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -44,6 +45,7 @@ public class UIManager : MonoBehaviour
         GameManager.instance.state = GameManager.GameState.InGame;
         startPanel.SetActive(false);
         gamePanel.SetActive(true);
+        FindObjectOfType<BallMovement>().Activate(Vector3.zero);
     }
 
     public void GameOver()
@@ -61,6 +63,7 @@ public class UIManager : MonoBehaviour
 
     private IEnumerator EndingCoroutine()
     {
+        yield return new WaitForSeconds(0.5f);
         confetti1.SetActive(true);
         yield return new WaitForSeconds(0.5f);
         confetti2.SetActive(true);

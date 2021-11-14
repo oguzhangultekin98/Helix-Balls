@@ -30,19 +30,6 @@ namespace Assets.Scripts.Behaviours
         }
         private void Update()
         {
-
-            #region DELETE
-            if (Input.GetKeyDown(KeyCode.Q))
-            {
-                UIManager.instance.GameOver();
-            }
-            if (Input.GetKeyDown(KeyCode.W))
-            {
-                UIManager.instance.Success();
-            }
-            #endregion
-
-
             if (reachedToEnd)
                 return;
 
@@ -52,8 +39,10 @@ namespace Assets.Scripts.Behaviours
                 _stages[_currentStageIndex].PlatformMovement();
                 _ringSpawner.StagePass();
                 ++_currentStageIndex;
-                if (_currentStageIndex >= _stages.Count)
+                if (_currentStageIndex >= _stages.Count) { 
                     reachedToEnd = true;
+                    UIManager.instance.Success();
+                }
             }
 
 

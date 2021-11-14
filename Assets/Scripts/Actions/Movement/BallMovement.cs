@@ -67,41 +67,8 @@ namespace Assets.Scripts.Actions.Movement
 
         private void Update()
         {
-            #region Delete
-            if (Input.GetKeyDown(KeyCode.T))
-            {
-                Debug.Log("T");
-                Activate(Vector3.zero);
-            }
-            if (Input.GetKeyDown(KeyCode.D))
-            {
-                Debug.Log("'D'EBUG");
-                isDebuging = !isDebuging;
-            }
-            if (isDebuging)
-            {
-                Debug.Log("movVector: " + movVerticalVector);
-            }
-            if (Input.GetKeyDown(KeyCode.H))
-            {
-                movHorizontalVector.x = 0.3f;
-            }
-
-            if (Input.GetKeyDown(KeyCode.J))
-            {
-                movHorizontalVector.x = -0.3f;
-            }
-
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                movHorizontalVector.z = 0.3f;
-            }
-            #endregion
-
-
             if (!Activated)
                 return;
-
             MoveTo();
         }
 

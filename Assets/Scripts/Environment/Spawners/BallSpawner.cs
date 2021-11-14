@@ -26,24 +26,5 @@ namespace Assets.Scripts.Environment.Spawners
         {
             get { return ballHolderParent.childCount; }
         }
-
-        private void Update()
-        {
-            #region Delete
-            if (Input.GetKeyDown(KeyCode.S))
-            {
-                Debug.Log("SSSSSSPAWN");
-                SpawnBall(Vector3.up);
-            }
-            #endregion
-        }
-
-        private void OnEnable()
-        {
-        }
-
-        private void OnDisable()
-        {
-        }
     }
 }
