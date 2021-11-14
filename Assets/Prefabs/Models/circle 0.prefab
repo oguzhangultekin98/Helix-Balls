@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4083092216703020640}
   - component: {fileID: 4083092216699596366}
   - component: {fileID: 4083092216700726414}
+  - component: {fileID: 3467401395502839709}
   m_Layer: 0
   m_Name: 4
   m_TagString: GoodPlatform
@@ -81,6 +82,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &3467401395502839709
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4083092216702661184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fab0cb456ec764aaf5c45e660292fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4083092216702661192
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,6 +139,7 @@ GameObject:
   - component: {fileID: 4083092216703020650}
   - component: {fileID: 4083092216699596360}
   - component: {fileID: 4083092216700726408}
+  - component: {fileID: 789714939107023304}
   m_Layer: 0
   m_Name: 1
   m_TagString: GoodPlatform
@@ -196,6 +210,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &789714939107023304
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4083092216702661194}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fab0cb456ec764aaf5c45e660292fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4083092216702661196
 GameObject:
   m_ObjectHideFlags: 0
@@ -207,6 +233,7 @@ GameObject:
   - component: {fileID: 4083092216703020652}
   - component: {fileID: 4083092216699596362}
   - component: {fileID: 4083092216700726410}
+  - component: {fileID: 6839305530547852231}
   m_Layer: 0
   m_Name: 2
   m_TagString: GoodPlatform
@@ -277,6 +304,18 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &6839305530547852231
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4083092216702661196}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fab0cb456ec764aaf5c45e660292fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &4083092216702661198
 GameObject:
   m_ObjectHideFlags: 0
@@ -288,6 +327,7 @@ GameObject:
   - component: {fileID: 4083092216703020654}
   - component: {fileID: 4083092216699596364}
   - component: {fileID: 4083092216700726412}
+  - component: {fileID: 8499833834961611769}
   m_Layer: 0
   m_Name: 3
   m_TagString: GoodPlatform
@@ -358,3 +398,15 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &8499833834961611769
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4083092216702661198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e9fab0cb456ec764aaf5c45e660292fb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

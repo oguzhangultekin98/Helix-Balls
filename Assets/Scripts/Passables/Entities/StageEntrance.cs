@@ -1,26 +1,24 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using Assets.Scripts.Passables.Entities.Helpers;
+using UnityEngine;
 
 namespace Assets.Scripts.Passables.Entities
 {
-    public class StageEntrance : PassableBase
+    public class StageEntrance : MonoBehaviour,IPlatformDeformer
     {
-        public float TopYPoint { get; private set; }
-
-        protected override void Awake()
+        [SerializeField] private int ballsNeeded;
+        public int BallCountNeeded
         {
-            base.Awake();
+            get { return ballsNeeded; }
         }
 
-        public float TopPoint => TopYPoint;
-
-        public void OnStageChangeScatterPlatforms() 
-        { 
-            
+        public void PlatformMovement()
+        {
+            var stage = transform.parent;
+            var forceHandlers = stage.GetComponentsInChildren<PlatformForceHandler>();
+            for (int i = 0; i < forceHandlers.Length; i++)
+            {
+                forceHandlers[i].GetScatter();
+            }
         }
-
     }
 }
