@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4122938131327598}
   - component: {fileID: 33193895915718416}
   - component: {fileID: 23188286496353356}
-  - component: {fileID: 2728691708955485408}
+  - component: {fileID: 2515696257608952283}
   m_Layer: 0
   m_Name: Ring
   m_TagString: Untagged
@@ -32,6 +32,7 @@ Transform:
   m_Children:
   - {fileID: 1198018231573246387}
   - {fileID: 8006542240007986855}
+  - {fileID: 4293738728849942617}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -84,7 +85,7 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &2728691708955485408
+--- !u!64 &2515696257608952283
 MeshCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -98,6 +99,107 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: e121965519da8964eb443caa891ca78c, type: 3}
+--- !u!1 &863549380481805890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2146328408966083621}
+  - component: {fileID: 2874313106684060746}
+  - component: {fileID: 5004144727525747589}
+  m_Layer: 3
+  m_Name: RingInteractor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2146328408966083621
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863549380481805890}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4293738728849942617}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2874313106684060746
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863549380481805890}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.017670743, y: 0.4617791, z: 0.46420655}
+  m_Center: {x: -0.0016001328, y: -0.007613639, z: -0.00970933}
+--- !u!114 &5004144727525747589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 863549380481805890}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76b7fe56cf3046246a28831351e4e8d5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!1 &1062177175534231354
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7039631130205712903}
+  - component: {fileID: 4830861799820589922}
+  m_Layer: 0
+  m_Name: SideBlockCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7039631130205712903
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062177175534231354}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4293738728849942617}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4830861799820589922
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062177175534231354}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.07625946, y: 0.5904302, z: 0.5904304}
+  m_Center: {x: -0.0027587148, y: -0.0063999076, z: 0.0000002823378}
 --- !u!1 &1288589188349976614
 GameObject:
   m_ObjectHideFlags: 0
@@ -113,12 +215,12 @@ GameObject:
   - component: {fileID: 8826412663894920842}
   - component: {fileID: 6515857175279941346}
   m_Layer: 3
-  m_Name: RingInteractor
+  m_Name: RingBounceInteractor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &1198018231573246387
 Transform:
   m_ObjectHideFlags: 0
@@ -158,8 +260,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.11751195, y: 0.35719767, z: 0.114983134}
-  m_Center: {x: 0.0022174378, y: 0.033142786, z: 0.354284}
+  m_Size: {x: 0.07911469, y: 0.35719776, z: 0.114983134}
+  m_Center: {x: 0.021416076, y: 0.033142786, z: 0.354284}
 --- !u!65 &6122591741867193463
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -171,8 +273,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12638104, y: 0.11909777, z: 0.32839093}
-  m_Center: {x: 0.0022172576, y: 0.34841576, z: -0.001463294}
+  m_Size: {x: 0.0751847, y: 0.11909774, z: 0.32839093}
+  m_Center: {x: 0.027815435, y: 0.34841576, z: -0.001463294}
 --- !u!65 &8826412663894920842
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -184,8 +286,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.13081564, y: 0.121555336, z: 0.31199974}
-  m_Center: {x: 0.004434488, y: -0.33328652, z: -0.0020576466}
+  m_Size: {x: 0.07321977, y: 0.121555336, z: 0.31199974}
+  m_Center: {x: 0.033232458, y: -0.33328652, z: -0.0020576466}
 --- !u!65 &6515857175279941346
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -197,8 +299,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12638102, y: 0.35887733, z: 0.12084434}
-  m_Center: {x: 0.0022174302, y: 0.033797707, z: -0.35088873}
+  m_Size: {x: 0.084784, y: 0.35887742, z: 0.12084434}
+  m_Center: {x: 0.023015952, y: 0.0337977, z: -0.35088873}
 --- !u!1 &4626947911203392447
 GameObject:
   m_ObjectHideFlags: 0
@@ -214,12 +316,12 @@ GameObject:
   - component: {fileID: 3950235466015306266}
   - component: {fileID: 1545237854462547591}
   m_Layer: 3
-  m_Name: RingInteractor (1)
+  m_Name: RingBounceInteractor2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8006542240007986855
 Transform:
   m_ObjectHideFlags: 0
@@ -259,8 +361,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.11751195, y: 0.35719767, z: 0.114983134}
-  m_Center: {x: 0.0022174378, y: 0.033142786, z: 0.354284}
+  m_Size: {x: 0.08231446, y: 0.35719755, z: 0.11498313}
+  m_Center: {x: 0.019816196, y: 0.033142824, z: 0.35428408}
 --- !u!65 &8275553866494260174
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -272,8 +374,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12638104, y: 0.11909777, z: 0.32839093}
-  m_Center: {x: 0.0022172576, y: 0.34841576, z: -0.001463294}
+  m_Size: {x: 0.071984924, y: 0.11909779, z: 0.32839093}
+  m_Center: {x: 0.029415341, y: 0.34841573, z: -0.0014632914}
 --- !u!65 &3950235466015306266
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -285,8 +387,8 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.13081564, y: 0.121555336, z: 0.31199974}
-  m_Center: {x: 0.004434488, y: -0.33328652, z: -0.0020576466}
+  m_Size: {x: 0.092418365, y: 0.12155532, z: 0.31199974}
+  m_Center: {x: 0.023633128, y: -0.33328652, z: -0.0020576448}
 --- !u!65 &1545237854462547591
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -298,5 +400,65 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.12638102, y: 0.35887733, z: 0.12084434}
-  m_Center: {x: 0.0022174302, y: 0.033797707, z: -0.35088873}
+  m_Size: {x: 0.06878509, y: 0.3588772, z: 0.12084433}
+  m_Center: {x: 0.031015407, y: 0.033797286, z: -0.35088938}
+--- !u!1 &8343980962900425421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4293738728849942617}
+  - component: {fileID: 5054687341049616896}
+  - component: {fileID: 2096283473715113901}
+  m_Layer: 3
+  m_Name: WrongSidePassAvoider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4293738728849942617
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8343980962900425421}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 7039631130205712903}
+  - {fileID: 2146328408966083621}
+  m_Father: {fileID: 4122938131327598}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &5054687341049616896
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8343980962900425421}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.27685264, y: 0.84001243, z: 0.83041304}
+  m_Center: {x: -0.0063999235, y: 0.0031996402, z: -0.001599726}
+--- !u!114 &2096283473715113901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8343980962900425421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fd642b79a8faf2b4a99c72e642e48643, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _ringSideAvoideCollider: {fileID: 4830861799820589922}

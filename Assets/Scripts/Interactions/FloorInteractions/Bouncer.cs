@@ -32,14 +32,14 @@ namespace Assets.Scripts.Interactions.FloorInteractions
                 {
                     reflectVector -= colDir.normalized;
                 }
+
                 else if (reflectType == ReflectType.HoopBounce)
                 {
                     if (colDir.y>0.1f) //Over hoop
                     {
                         reflectVector -= colDir.normalized;
-                        Debug.Log("OVER HOOP INTERACTOR");
                     }
-                    else if (colDir.y<0.1f)//Under hoop
+                    else if (colDir.y<-0.1f)//Under hoop
                     {
                         randomnessOnBounce = 0f;
                     }
