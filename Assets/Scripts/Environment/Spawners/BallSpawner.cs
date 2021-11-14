@@ -1,7 +1,7 @@
 ﻿using Assets.Scripts.Actions.Movement;
 using UnityEngine;
 
-namespace Assets.Scripts.Environment
+namespace Assets.Scripts.Environment.Spawners
 {
     public class BallSpawner : MonoBehaviour
     {
@@ -22,6 +22,11 @@ namespace Assets.Scripts.Environment
             Vector3 subDirection = (Random.Range(0,1) < 0.5f) ? Vector3.right : Vector3.left;
             ballMovement.Activate(subDirection);
         }
+        public int GetBallCount
+        {
+            get { return ballHolderParent.childCount; }
+        }
+
         private void Update()
         {
             #region Delete
@@ -31,9 +36,6 @@ namespace Assets.Scripts.Environment
                 SpawnBall(Vector3.up);
             }
             #endregion
-
-
-
         }
 
         private void OnEnable()

@@ -30,6 +30,36 @@ Transform:
   m_Father: {fileID: 7685656059076297388}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1857165655532462137
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1865069782854529518}
+  m_Layer: 0
+  m_Name: RingHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1865069782854529518
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857165655532462137}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7685656059076297388}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2307531098101213338
 GameObject:
   m_ObjectHideFlags: 0
@@ -231,6 +261,7 @@ GameObject:
   - component: {fileID: 7685656059076297388}
   - component: {fileID: 5908996319437600585}
   - component: {fileID: 1425982284835877633}
+  - component: {fileID: 2889129690714117529}
   m_Layer: 0
   m_Name: ArenaBase
   m_TagString: Untagged
@@ -252,6 +283,7 @@ Transform:
   - {fileID: 2092896030113929269}
   - {fileID: 8714957666805084179}
   - {fileID: 4246239892084223112}
+  - {fileID: 1865069782854529518}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -287,6 +319,23 @@ MonoBehaviour:
   - {fileID: 2100000, guid: a68f8ae5758948f4bbaf40ce51c79fde, type: 2}
   ballPrefab: {fileID: 5600987614977850696, guid: dd41cbe0800a4a24a9001a226ad0dd53, type: 3}
   ballHolderParent: {fileID: 4246239892084223112}
+--- !u!114 &2889129690714117529
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7592249955470967838}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dafb80eb9aded864599ef82aa0daa9c8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ringPrefabs:
+  - {fileID: 1015780934767744, guid: a37573ad5d3fb7a47997aadbf0976202, type: 3}
+  - {fileID: 1015780934767744, guid: e04a0d06c5576e649bd56cf132c3d61d, type: 3}
+  ringHolderParent: {fileID: 1865069782854529518}
+  additionalHeigh: {x: 0, y: 2, z: 0}
 --- !u!1001 &2404869356347641773
 PrefabInstance:
   m_ObjectHideFlags: 0

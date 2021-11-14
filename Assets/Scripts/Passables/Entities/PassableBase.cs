@@ -16,7 +16,6 @@ namespace Assets.Scripts.Passables.Entities
 
         public int StageIndex { get; protected set; }
         [SerializeField] private int ballsNeeded;
-        public abstract void OnHitPassable();
         public int BallCountNeeded
         {
             get { return ballsNeeded; }

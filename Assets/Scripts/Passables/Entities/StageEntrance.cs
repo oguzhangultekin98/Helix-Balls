@@ -17,9 +17,9 @@ namespace Assets.Scripts.Passables.Entities
 
         public float TopPoint => TopYPoint;
 
-        public override void OnHitPassable()
-        {
-            //Holderı bul sonra eğer geçebilirse havada kalmalarını engelle
+        public void OnStageChangeScatterPlatforms() 
+        { 
+            
         }
 
     }

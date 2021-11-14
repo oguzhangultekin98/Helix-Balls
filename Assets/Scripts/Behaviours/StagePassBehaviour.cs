@@ -15,7 +15,7 @@ namespace Assets.Scripts.Behaviours
         private void Awake()
         {
             _stages = GameObject.FindObjectsOfType<StageEntrance>()
-                .OrderBy(s => -s.transform.position.z).ToList();
+                .OrderBy(s => -s.transform.position.y).ToList();
         }
         private void Update()
         {
@@ -24,9 +24,14 @@ namespace Assets.Scripts.Behaviours
                 Debug.Log("Z");
                 for (int i = 0; i < _stages.Count; i++)
                 {
-                    Debug.Log(_stages[i].BallCountNeeded);
+                    Debug.Log(_stages[i].transform.position);
                 }
             }
+        }
+
+        public Vector3 GetCurrentPlatformLoc()
+        {
+            return _stages[_currentStageIndex].transform.position;
         }
     }
 }
