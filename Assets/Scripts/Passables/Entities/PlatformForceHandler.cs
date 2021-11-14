@@ -15,10 +15,10 @@ namespace Assets.Scripts.Passables.Entities
 
             _rigidbody.AddForce(Random.onUnitSphere * Random.Range(4f, 8f), ForceMode.Impulse);
             _rigidbody.AddTorque(Random.insideUnitSphere * Random.Range(1f, 10f));
-            StartCoroutine(FixHitStatus());
+            StartCoroutine(FixPassStatus());
         }
 
-        IEnumerator FixHitStatus()
+        IEnumerator FixPassStatus()
         {
             yield return new WaitForSeconds(2f);
             Destroy(gameObject);

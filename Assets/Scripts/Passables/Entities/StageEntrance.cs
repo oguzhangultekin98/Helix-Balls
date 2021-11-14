@@ -10,7 +10,6 @@ namespace Assets.Scripts.Passables.Entities
         {
             get { return ballsNeeded; }
         }
-
         public void PlatformMovement()
         {
             var stage = transform.parent;
@@ -19,6 +18,7 @@ namespace Assets.Scripts.Passables.Entities
             {
                 forceHandlers[i].GetScatter();
             }
+            Destroy(transform.parent.gameObject);
         }
     }
 }
