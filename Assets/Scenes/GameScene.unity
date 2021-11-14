@@ -763,7 +763,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5600987614977850700, guid: dd41cbe0800a4a24a9001a226ad0dd53, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.05
+      value: -0.93
       objectReference: {fileID: 0}
     - target: {fileID: 5600987614977850700, guid: dd41cbe0800a4a24a9001a226ad0dd53, type: 3}
       propertyPath: m_LocalPosition.y
@@ -1061,6 +1061,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 4246239892084223112, guid: 0cd580a576306b34bb8270fc81282019, type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 7592249955470967838, guid: 0cd580a576306b34bb8270fc81282019, type: 3}
       propertyPath: m_Name
       value: ArenaBase

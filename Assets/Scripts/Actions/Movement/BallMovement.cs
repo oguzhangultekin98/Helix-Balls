@@ -71,7 +71,7 @@ namespace Assets.Scripts.Actions.Movement
             if (Input.GetKeyDown(KeyCode.T))
             {
                 Debug.Log("T");
-                Activate();
+                Activate(Vector3.zero);
             }
             if (Input.GetKeyDown(KeyCode.D))
             {
@@ -171,7 +171,7 @@ namespace Assets.Scripts.Actions.Movement
         }
 
         [ContextMenu("Start")]
-        public void Activate()
+        public void Activate(Vector3 horizontalMov)
         {
             Activated = true;
             SetGravity();
@@ -179,6 +179,7 @@ namespace Assets.Scripts.Actions.Movement
             timeOnAir = 99f;
             riseUpSpeedMultiplier = UnityEngine.Random.Range(4.75f, 6.00f);
             ballMass = UnityEngine.Random.Range(0.75f, 1.25f);
+            movHorizontalVector = horizontalMov;
         }
 
         private void OnDestroy()
