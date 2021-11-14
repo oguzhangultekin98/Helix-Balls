@@ -291,7 +291,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 3793008089602844975, guid: ede1ac9a4280ceb47b58ab62bdfbc3c7, type: 3}
       propertyPath: ballsNeeded
-      value: 8
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 5795667843438336253, guid: ede1ac9a4280ceb47b58ab62bdfbc3c7, type: 3}
       propertyPath: m_Name
