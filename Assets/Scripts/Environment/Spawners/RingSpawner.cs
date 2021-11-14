@@ -26,7 +26,7 @@ namespace Assets.Scripts.Environment.Spawners
         public void SpawnRing()
         {
             _ringCount = ringHolderParent.childCount;
-            if (_ringCount > 0 || onStagePass)
+            if (_ringCount > 1 || onStagePass)
                 return;
 
 
