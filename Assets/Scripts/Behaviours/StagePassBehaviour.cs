@@ -30,6 +30,19 @@ namespace Assets.Scripts.Behaviours
         }
         private void Update()
         {
+
+            #region DELETE
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                UIManager.instance.GameOver();
+            }
+            if (Input.GetKeyDown(KeyCode.W))
+            {
+                UIManager.instance.Success();
+            }
+            #endregion
+
+
             if (reachedToEnd)
                 return;
 
