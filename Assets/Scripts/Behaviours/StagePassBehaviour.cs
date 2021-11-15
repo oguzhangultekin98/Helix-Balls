@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Assets.Scripts.Passables.Entities;
 using System.Linq;
 using Assets.Scripts.Environment.Spawners;
+using Assets.Scripts.Actions.Movement;
 
 namespace Assets.Scripts.Behaviours
 {
@@ -14,6 +15,7 @@ namespace Assets.Scripts.Behaviours
         private BallSpawner _ballSpawner;
         private RingSpawner _ringSpawner;
         private bool reachedToEnd;
+        private SimpleCameraMovement _simpleCameraMovement;
 
         public bool isReachedToEnd
         {
@@ -27,6 +29,7 @@ namespace Assets.Scripts.Behaviours
 
             _ballSpawner = FindObjectOfType<BallSpawner>();
             _ringSpawner = FindObjectOfType<RingSpawner>();
+            _simpleCameraMovement = FindObjectOfType<SimpleCameraMovement>();
         }
         private void Update()
         {
@@ -34,7 +37,7 @@ namespace Assets.Scripts.Behaviours
                 return;
 
 
-            if (_stages[_currentStageIndex].BallCountNeeded < _ballSpawner.GetBallCount)//Ballswe have2)
+            if (_stages[_currentStageIndex].BallCountNeeded < _ballSpawner.GetBallCount)
             {
                 _stages[_currentStageIndex].PlatformMovement();
                 _ringSpawner.StagePass();
@@ -42,7 +45,10 @@ namespace Assets.Scripts.Behaviours
                 if (_currentStageIndex >= _stages.Count) { 
                     reachedToEnd = true;
                     UIManager.instance.Success();
+                    _simpleCameraMovement.EndGameCamera();
                 }
+                else
+                    _simpleCameraMovement.MoveCamera(_stages[_currentStageIndex].transform.position.y);
             }
 
 
