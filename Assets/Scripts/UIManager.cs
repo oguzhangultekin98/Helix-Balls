@@ -43,7 +43,11 @@ public class UIManager : MonoBehaviour
     {
         GameManager.instance.state = GameManager.GameState.InGame;
         startPanel.SetActive(false);
-        FindObjectOfType<BallMovement>().Activate(Vector3.zero);
+        var balls = FindObjectsOfType<BallMovement>();
+        for (int i = 0; i < balls.Length; i++)
+        {
+            balls[i].Activate(Vector3.zero);
+        }
     }
 
     public void GameOver()
