@@ -376,7 +376,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2420868887031383331
 RectTransform:
   m_ObjectHideFlags: 0
@@ -556,6 +556,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: UI
       objectReference: {fileID: 0}
+    - target: {fileID: 3684835414235548815, guid: d7372233d936c3143a7a4cef610e6ba4, type: 3}
+      propertyPath: joystick
+      value: 
+      objectReference: {fileID: 8756925124114043652}
     - target: {fileID: 3684835414235548815, guid: d7372233d936c3143a7a4cef610e6ba4, type: 3}
       propertyPath: confetti1
       value: 

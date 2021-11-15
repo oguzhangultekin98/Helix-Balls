@@ -18,6 +18,7 @@ public class UIManager : MonoBehaviour
     public GameObject startPanel;
     public GameObject gameOverPanel;
     public GameObject successPanel;
+    public GameObject joystick;
 
     public Text startingLevelText;
     public Text levelFailedText;
@@ -43,6 +44,7 @@ public class UIManager : MonoBehaviour
     {
         GameManager.instance.state = GameManager.GameState.InGame;
         startPanel.SetActive(false);
+        joystick.SetActive(true);
         var balls = FindObjectsOfType<BallMovement>();
         for (int i = 0; i < balls.Length; i++)
         {
@@ -53,12 +55,14 @@ public class UIManager : MonoBehaviour
     public void GameOver()
     {
         gameOverPanel.SetActive(true);
+        joystick.SetActive(false);
         GameManager.instance.state = GameManager.GameState.GameOver;
     }
 
     public void Success()
     {
         StartCoroutine(EndingCoroutine());
+        joystick.SetActive(false);
         GameManager.instance.state = GameManager.GameState.GameEnded;
     }
 
