@@ -32,6 +32,6 @@ public class LevelManager : MonoBehaviour
 
     public int GetLevelIndex()
     {
-        return (levelIndex - 1) % 3;
+        return (levelIndex - 1) % 2;
     }
 }
