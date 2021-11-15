@@ -86,6 +86,6 @@ public class UIManager : MonoBehaviour
 
     public void NextLevel()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex); //Or restart level, increase playerpref index
+        SceneManager.LoadScene((SceneManager.GetActiveScene().buildIndex+1) % 2); //Or restart level, increase playerpref index
     }
 }
