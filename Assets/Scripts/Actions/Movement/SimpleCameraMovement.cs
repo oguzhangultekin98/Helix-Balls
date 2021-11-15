@@ -12,7 +12,7 @@ namespace Assets.Scripts.Actions.Movement
     {
         [SerializeField] private TransformInterpolator _transformInterpolater;
         private bool endGame;
-        private float currentPlatformLocY;
+        private float currentPlatformLocY = 5.55f;
         private float endGamePlatformLocY;
         private void Start()
         {
@@ -25,31 +25,22 @@ namespace Assets.Scripts.Actions.Movement
         {
             if (endGame)
             {
-                var targetPosY = endGamePlatformLocY+2f;
+                var targetPosY = endGamePlatformLocY-4.5f;
 
                 transform.position = new Vector3
-                    (transform.position.x, Mathf.Lerp(_transformInterpolater.oldVector.y, targetPosY, 0.18f), transform.position.z) ;
+                    (transform.position.x, Mathf.Lerp(_transformInterpolater.oldVector.y, targetPosY, 0.4f), transform.position.z) ;
             }
             else
             {
-                var targetPosY = currentPlatformLocY + 2f;
+                var targetPosY = currentPlatformLocY-5.5f;
 
                 transform.position = new Vector3
-                    (transform.position.x, Mathf.Lerp(_transformInterpolater.oldVector.y, targetPosY, 0.18f), transform.position.z);
+                    (transform.position.x, Mathf.Lerp(_transformInterpolater.oldVector.y, targetPosY, 0.35f), transform.position.z);
 
             }
             _transformInterpolater.oldVector = transform.position;
 
-
-            #region Delete
-            if (Input.GetKey(KeyCode.W))
-            {
-                endGame = true;
-            }
-
-            #endregion
         }
-
         public void MoveCamera(float toYAxis)
         {
             currentPlatformLocY = toYAxis;

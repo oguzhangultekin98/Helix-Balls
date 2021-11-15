@@ -47,10 +47,13 @@ namespace Assets.Scripts.Behaviours
                     UIManager.instance.Success();
                     _simpleCameraMovement.EndGameCamera();
                 }
-                else
-                    _simpleCameraMovement.MoveCamera(_stages[_currentStageIndex].transform.position.y);
-            }
+                else { 
+                    _simpleCameraMovement.MoveCamera(_stages[_currentStageIndex].transform.parent.transform.position.y);
+                    Debug.Log("Parent Y"+_stages[_currentStageIndex].transform.parent.transform.position.y);    
+                    Debug.Log("Chield Y" + _stages[_currentStageIndex].transform.position.y);
 
+                }
+            }
 
         }
 
