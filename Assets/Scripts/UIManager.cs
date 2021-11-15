@@ -16,7 +16,6 @@ public class UIManager : MonoBehaviour
     public GameObject confetti3;
 
     public GameObject startPanel;
-    public GameObject gamePanel; //canvas
     public GameObject gameOverPanel;
     public GameObject successPanel;
 
@@ -44,13 +43,11 @@ public class UIManager : MonoBehaviour
     {
         GameManager.instance.state = GameManager.GameState.InGame;
         startPanel.SetActive(false);
-        gamePanel.SetActive(true);
         FindObjectOfType<BallMovement>().Activate(Vector3.zero);
     }
 
     public void GameOver()
     {
-        gamePanel.SetActive(false);
         gameOverPanel.SetActive(true);
         GameManager.instance.state = GameManager.GameState.GameOver;
     }
@@ -70,7 +67,6 @@ public class UIManager : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         confetti3.SetActive(true);
         yield return new WaitForSeconds(2.5f);
-        gamePanel.SetActive(false);
         successPanel.SetActive(true);
         LevelManager.instance.UpdateLevelIndex();
     }
